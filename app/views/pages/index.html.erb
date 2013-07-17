@@ -1,0 +1,25 @@
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading">Site Title</a>
+
+    <ul>
+        <li class="pure-menu-selected"><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Sign In</a></li>
+    </ul>
+</div>
+
+<%@post = {title: "blah", url: "www.sunshine.com", image: "IMAGE", score: 1}%>
+
+<div class='main'>
+    <% @post.each do |f|%>
+    <div class='movie_post'>
+        <%= @post.title%>
+        <%= @post.url%>
+        <%= @post.image%>
+        <%= @post.score%>
+        <link_to "Up Vote!", votes_path(@post.id,)>
+        <link_to "Down Vote!", votes_path(@post.id ) >
+        <% end %>
+    </div>
+</div>
