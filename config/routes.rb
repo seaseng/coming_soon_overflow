@@ -1,4 +1,8 @@
 ComingSoonOverflow::Application.routes.draw do
+  get '/' => "pages#index"
+  resources :users, only: [:index, :new, :create]  do
+    resources :posts, shallow: true, only: [:show, :create, :new, :index]
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
