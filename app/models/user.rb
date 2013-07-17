@@ -1,3 +1,7 @@
 class User < ActiveRecord::Base
-  # attr_accessible :title, :body
+  has_many :votes
+  has_many :posts
+  validates :email, presence: true
+  has_secure_password
+
 end
