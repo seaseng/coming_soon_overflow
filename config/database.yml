@@ -12,12 +12,12 @@ common: &common
 
 development:
   <<: *common
-  database: APP_NAME_dev
+  database: coming_soon_overflow_dev
 
 test:
   <<: *common
-  database: APP_NAME_test
+  database: coming_soon_overflow_test
 
 production:
   <<: *common
-  database: APP_NAME
+  database: coming_soon_overflow
