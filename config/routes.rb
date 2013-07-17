@@ -1,7 +1,11 @@
 ComingSoonOverflow::Application.routes.draw do
-  root :to => "pages#index"
-  resources :users, only: [:index, :new, :create]  do
-    resources :posts, shallow: true, only: [:show, :create, :new, :index]
+  root to: "pages#index"
+    resources :users
+    resources :posts, only: [:new, :create, :show, :update]
+    resources :votes, only: [:create,:show]
+    # resources :posts, shallow: true, only: [:show, :create, :new, :index] do
+    #   resources :votes, shallow: true, only: [:show, :create, :new]
+    # end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -59,4 +63,4 @@ ComingSoonOverflow::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-end
+# end

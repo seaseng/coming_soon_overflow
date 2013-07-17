@@ -1,5 +1,6 @@
-class PagesControlller < ActionController::Base
+class PagesController < ActionController::Base
 	def index
-		@post = Post.all
+	end
+	def show
 	end
 end

@@ -5,6 +5,6 @@ class PostsControlller < ActionController::Base
 	end
 	def create
 	end
-	def index
+	def update
 	end
 end
