@@ -1,5 +1,5 @@
 ComingSoonOverflow::Application.routes.draw do
-  get '/' => "pages#index"
+  root :to => "pages#index"
   resources :users, only: [:index, :new, :create]  do
     resources :posts, shallow: true, only: [:show, :create, :new, :index]
   end
