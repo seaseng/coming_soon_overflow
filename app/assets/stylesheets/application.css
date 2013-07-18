@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require purecss
+ *= require_relative '../../../vendor/assets/stylesheets/.'
  *= require_tree .
- *= pure
  */
