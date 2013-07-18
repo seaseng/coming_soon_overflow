@@ -20,12 +20,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'rspec-rails', group: [:test, :development]
+# gem 'rspec-rails', group: [:test, :development]
 
 
-group :test do
+group :test, :development do
+  gem 'rspec-rails'
   gem 'shoulda'
-  gem 'factory_girl_rails', :require => false
+  gem 'factory_girl_rails'#, :require => false
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'

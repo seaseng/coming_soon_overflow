@@ -1,0 +1,24 @@
+<nav>
+    <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading">Coming Soon Overflow</a>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Sign In</a></li>
+      </ul>
+  </div>
+  <nav>
+<!--     <a class="pure-button-primary" href="#">A Pure Button</a>
+    <button class="pure-button">A Pure Button</button> -->
+    <div class='container'>
+        <div class='main'>
+         <% @post.each do |f|%>
+         <div class='movie_post'>
+             <%= f.title%>
+             <%= f.url%>
+             <%= f.image_url %>
+             <%= link_to "Up Vote!", votes_path(@post) %>
+             <%= link_to "Down Vote!", votes_path(@post ) %>
+             <% end %>
+         </div>
+     </div>
