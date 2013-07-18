@@ -1,6 +1,8 @@
 ComingSoonOverflow::Application.routes.draw do
+
+  devise_for :users
+
   root to: "posts#index"
-    resources :users
     resources :posts, only: [:new, :create, :show, :update, :index]
     resources :votes, only: [:create,:show]
     # resources :posts, shallow: true, only: [:show, :create, :new, :index] do
