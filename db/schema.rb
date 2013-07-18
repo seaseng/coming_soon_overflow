@@ -11,8 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717182809) do
-
+ActiveRecord::Schema.define(:version => 20130717214610) do
+  create_table "posts", :force => true do |t|
+    t.string  "title"
+    t.string  "url"
+    t.string  "image_url"
+    t.integer "upvotes"
+    t.integer "downvotes"
+    t.integer "user_id"
+  end
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
