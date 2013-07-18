@@ -1,11 +1,11 @@
-    <nav>
-    	<ul>
-    		<li class="pure-menu-selected"><a href="#">Home</a></li>
-    		<li><a href="#">Home</a></li>
-    		<li><a href="#">About Us</a></li>
-    		<li><a href="#">Sign In</a></li>
-    	</ul>
-    <nav>
+<nav>
+	<ul>
+		<li class="pure-menu-selected"><a href="#">Home</a></li>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About Us</a></li>
+		<li><a href="#">Sign In</a></li>
+	</ul>
+<nav>
     <a class="pure-button" href="#">A Pure Button</a>
     <button class="pure-button">A Pure Button</button>
 <div class='container'>
@@ -15,8 +15,8 @@
     	<%= f.title%>
     	<%= f.url%>
     	<%= f.image_url %>
-    	<link_to "Up Vote!", votes_path(@post.id,)>
-    	<link_to "Down Vote!", votes_path(@post.id ) >
+    	<%= link_to "Up Vote!", votes_path(@post) %>
+    	<%= link_to "Down Vote!", votes_path(@post ) %>
     	<% end %>
     </div>
 </div>
