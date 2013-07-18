@@ -1,5 +1,5 @@
 ComingSoonOverflow::Application.routes.draw do
-  root to: "pages#index"
+  root to: "posts#show"
     resources :users
     resources :posts, only: [:new, :create, :show, :update]
     resources :votes, only: [:create,:show]
