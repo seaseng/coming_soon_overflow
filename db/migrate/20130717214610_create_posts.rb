@@ -4,8 +4,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string    :title
       t.string    :url
       t.string    :image_url
-      t.integer   :upvotes
-      t.integer    :downvotes
+      t.integer   :upvotes, default: 0
+      t.integer    :downvotes, default: 0
       t.belongs_to :user
     end
 
