@@ -12,10 +12,10 @@
     <div class='main'>
     	<% @post.each do |f|%>
     	<div class='movie_post'
-    	<%= @post.title%>
-    	<%= @post.url%>
-    	<%= @post.image%>
-    	<%= @post.score%>
+    	<%= f.title%>
+    	<%= f.url%>
+    	<%= f.image%>
+    	<%= f.score%>
     	<link_to "Up Vote!", votes_path(@post.id,)>
     	<link_to "Down Vote!", votes_path(@post.id ) >
     	<% end %>
