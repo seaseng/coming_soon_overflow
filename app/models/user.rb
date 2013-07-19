@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password_confirmation
 
   def avatar
-    "http://www.gravatar.com/avatar/" + Digest::MD5.hexdigest(self.email)
+    "http://www.gravatar.com/avatar/" + Digest::MD5.hexdigest(self.email) + "?s=200"
   end
 
 end
