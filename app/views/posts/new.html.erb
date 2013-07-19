@@ -1,5 +1,32 @@
 <h2>Create New Trailer Post</h2>
 
+<%= form_tag(movie_search_path, method: "get") do %>
+  <%= label_tag(:q, "Search for movie title:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+<br>
+<br>
+<%= @movies.first %>  
+
+
+
+<% if @movies %>
+  <ul>
+  <% @movies.each do |movie| %>
+    <li>
+    <%= movie.title %>
+    <% if movie.release_dates && movie.release_dates.theater %>
+      <%= movie.release_dates.theater %>
+    <% end %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
+
 <%= form_for @post do |f| %>
 
   <div><%= f.label :title %><br />

@@ -13,6 +13,7 @@ They can also watch movie trailers right on the site.
 - ~~Visitor can only view the index page, but cannot create posts or vote~~
 - ~~User can only vote once on a post~~
 - ~~Post will have an upvote or downvote~~
+- ~~Display gravatar on their profile page.~~
 - User Profile Page! 
 - User can edit their post
 - User can change their vote

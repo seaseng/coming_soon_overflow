@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
+  include RottenTomatoes
 	def index
 		@posts = Post.all.reverse
 	end
 
 	def new #get
     @post = Post.new
+    @movies = params[:movies]
 	end
 
 	def create #post
@@ -30,6 +32,12 @@ class PostsController < ApplicationController
 	end
 
   def show
+  end
+
+  def movie_search
+    @movies = Post.find_tomato params[:q]
+    @post = Post.new
+    render :new
   end
 
 end

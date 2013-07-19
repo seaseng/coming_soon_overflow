@@ -10,6 +10,7 @@ gem 'bcrypt-ruby'
 gem 'debugger'
 gem 'devise'
 gem 'faker'
+gem 'rottentomatoes'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -2,6 +2,7 @@ ComingSoonOverflow::Application.routes.draw do
 
   devise_for :users
 
+  get '/movie_search' => 'posts#movie_search', as: 'movie_search'
   root to: "posts#index"
   get '/posts/popularity' => 'posts#sort', :as => 'posts_sort'
   resources :users, only: [:show]
