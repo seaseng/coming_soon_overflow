@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='main'>
-   <% @posts.reverse.each do |post|%>
+    <%= link_to "Sort By Popularity",  posts_sort_path %>
+   <% @posts.each do |post|%>
    <div class='movie_post'>
      <%= post.title%>
      <%= post.url%>
