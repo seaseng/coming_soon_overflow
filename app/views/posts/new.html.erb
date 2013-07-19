@@ -18,19 +18,21 @@
   <div><%= f.submit "Create Post" %></div>
 <% end %>
 
-
-<% if @movies %>
-  <% @movies.each do |movie| %>
-    <div class="movie">
-      <% if movie.respond_to?(:posters) && movie.posters.respond_to?(:original) %>
-        <%= image_tag(movie.posters.original, height: "200") %>
-      <% end %>
-      <%= movie.title %>
-      <% if movie.respond_to?(:release_dates) && movie.release_dates.respond_to?(:theater) %>
-        <%= movie.release_dates.theater %>
-      <% end %>
-    </div>
+<div id="movie_list">
+  <% if @movies %>
+    <% @movies.each do |movie| %>
+      <div class="movie">
+        <% if movie.respond_to?(:posters) && movie.posters.respond_to?(:original) %>
+          <%= image_tag(movie.posters.original, height: "200") %>
+        <% end %>
+        <div class="title">
+          <%= movie.title %>
+        </div>
+        <% if movie.respond_to?(:release_dates) && movie.release_dates.respond_to?(:theater) %>
+          <%= movie.release_dates.theater %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-
+</div>
 
