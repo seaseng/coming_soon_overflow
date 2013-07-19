@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(:version => 20130719020925) do
     t.string  "title"
     t.string  "url"
     t.string  "image_url"
-    t.integer "upvotes",   :default => 0
-    t.integer "downvotes", :default => 0
     t.integer "user_id"
   end
 

@@ -9,6 +9,7 @@ gem 'pg'
 gem 'bcrypt-ruby'
 gem 'debugger'
 gem 'devise'
+gem 'faker'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,6 +32,7 @@ group :test, :development do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
+
 end
 
 

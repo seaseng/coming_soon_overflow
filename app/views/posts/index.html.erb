@@ -1,12 +1,16 @@
 <div class='container'>
   <div class='main'>
-   <% @post.each do |f|%>
+   <% @posts.each do |post|%>
    <div class='movie_post'>
-     <%= f.title%>
-     <%= f.url%>
-     <%= f.image_url %>
-     <%= link_to "Up Vote!", votes_path(@post) %>
-     <%= link_to "Down Vote!", votes_path(@post ) %>
+     <%= post.title%>
+     <%= post.url%>
+     <%= post.image_url %>
+     <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count%>
+     <%  if current_user %>
+       <%= link_to "Up Vote", new_post_vote_path(post, :value => 1) %>
+       <%= link_to "Down Vote", new_post_vote_path(post, :value => -1) %>
+     <%  end %>
      <% end %>
    </div>
  </div>
+</div>

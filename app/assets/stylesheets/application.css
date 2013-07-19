@@ -11,3 +11,6 @@
  *= require_self
  *= require_tree .
  */
+.movie_post {
+  border: 1px solid gray;
+}

@@ -3,12 +3,12 @@ ComingSoonOverflow::Application.routes.draw do
   devise_for :users
 
   root to: "posts#index"
-    resources :posts, only: [:new, :create, :show, :update, :index]
-    resources :votes, only: [:create,:show]
-    # resources :posts, shallow: true, only: [:show, :create, :new, :index] do
-    #   resources :votes, shallow: true, only: [:show, :create, :new]
-    # end
+  # resources :posts, only: [:new, :create, :show, :update, :index]
+  # resources :votes, only: [:create,:show]
+  resources :posts, shallow: true do 
+    resources :votes
   end
+end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
