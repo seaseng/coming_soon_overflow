@@ -9,8 +9,8 @@ They can also watch movie trailers right on the site.
 - ~~Users can log in~~
 - ~~Users can logout~~
 - ~~Users can vote up or down on a post~~
-- User can create a post with a title
-- Visitor can only view the index page, but cannot create posts or vote
+- ~~User can create a post with a title~~
+- ~~Visitor can only view the index page, but cannot create posts or vote~~
 - Users can sign in via Google
 - ~~User can only vote once on a post~~
 - ~~Post will have an upvote or downvote~~

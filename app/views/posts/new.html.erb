@@ -1,0 +1,9 @@
+<h2>Create New Trailer Post</h2>
+
+<%= form_for @post do |f| %>
+
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title, :autofocus => true %></div>
+
+  <div><%= f.submit "Create Post" %></div>
+<% end %>
