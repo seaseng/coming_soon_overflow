@@ -32,6 +32,7 @@ class PostsController < ApplicationController
 	end
 
   def show
+
   end
 
   def movie_search
