@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20130719020925) do
     t.string  "title"
     t.string  "url"
     t.string  "image_url"
+    t.date    "release_date"
     t.integer "user_id"
   end
 
