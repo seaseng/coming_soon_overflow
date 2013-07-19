@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130719020925) do
 
   create_table "posts", :force => true do |t|
     t.string  "title"
-    t.string  "url"
+    t.string  "trailer_url"
     t.string  "image_url"
     t.date    "release_date"
     t.integer "user_id"

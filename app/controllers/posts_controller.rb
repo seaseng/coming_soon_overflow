@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   include RottenTomatoes
+  RT_API_KEY = "q2zm55s22pkmfxehb4ae6sak"
 	def index
 		@posts = Post.all.reverse
 	end
@@ -10,10 +11,11 @@ class PostsController < ApplicationController
 	end
 
 	def create #post
-    puts '*'*50
-    puts "Title: #{params[:title]}"
+    clips = HTTParty.get(params[:clips_url] + "?apikey=" + RT_API_KEY)
+    trailer_url = clips['clips'].first['links']['alternate']
 
-    post = Post.new(title: params[:post][:title], user_id: current_user.id)
+    post = Post.new(title: params[:title], user_id: params[:user_id], image_url: params[:image_url],
+     trailer_url: trailer_url, release_date: params[:release_date])
     if post.save
       redirect_to root_path
     else

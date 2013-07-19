@@ -4,7 +4,7 @@
    <% @posts.each do |post|%>
    <div class='movie_post'>
      <%= post.title%>
-     <%= post.url%>
+     <%= post.trailer_url%>
      <%= post.image_url %>
      <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count%>
      <%  if current_user %>

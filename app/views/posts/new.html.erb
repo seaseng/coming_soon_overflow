@@ -6,22 +6,26 @@
   <%= submit_tag "Search", class: "pure-button pure-button-primary" %>
 <% end %>
 
-<br>
-<br>
-<br>
-<%= form_for @post do |f| %>
-
-  <div>
-  <%= f.hidden_field :title %>
+<%= form_tag posts_url, method: 'post' do %>
+  <div class='hidden'>
+    <%= hidden_field_tag :title %>
+    <%= hidden_field_tag :image_url %>
+    <%= hidden_field_tag :clips_url %>
+    <%= hidden_field_tag :release_date %>
+    <%= hidden_field_tag :user_id, current_user.id %>
   </div>
-
-  <div><%= f.submit "Create Post" %></div>
+  <div><%= submit_tag "Create Post", class: "pure-button pure-button-primary" %></div>
 <% end %>
 
 <div id="movie_list">
   <% if @movies %>
     <% @movies.each do |movie| %>
       <div class="movie">
+        <div class="clips_url" style="display: none">
+        <% if movie.respond_to?(:links) && movie.links.respond_to?(:clips) %>
+          <%= movie.links.clips %>
+        <% end %>
+        </div>
         <% if movie.respond_to?(:posters) && movie.posters.respond_to?(:original) %>
           <%= image_tag(movie.posters.original, height: "200") %>
         <% end %>
@@ -29,7 +33,9 @@
           <%= movie.title %>
         </div>
         <% if movie.respond_to?(:release_dates) && movie.release_dates.respond_to?(:theater) %>
-          <%= movie.release_dates.theater %>
+          <div class="release_date">
+            <%= movie.release_dates.theater %>
+          </div>
         <% end %>
       </div>
     <% end %>
