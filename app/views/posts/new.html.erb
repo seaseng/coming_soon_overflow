@@ -6,31 +6,28 @@
   <%= submit_tag("Search") %>
 <% end %>
 
-<br>
-<br>
-<br>
-<%= @movies.first %>  
-
-
-
-<% if @movies %>
-  <ul>
-  <% @movies.each do |movie| %>
-    <li>
-    <%= movie.title %>
-    <% if movie.release_dates && movie.release_dates.theater %>
-      <%= movie.release_dates.theater %>
-    <% end %>
-    </li>
-  <% end %>
-  </ul>
-<% end %>
-
-
 <%= form_for @post do |f| %>
 
-  <div><%= f.label :title %><br />
-  <%= f.text_field :title, :autofocus => true %></div>
+  <div>
+  <%= f.hidden_field :title %>
+  </div>
 
   <div><%= f.submit "Create Post" %></div>
 <% end %>
+
+
+<% if @movies %>
+  <% @movies.each do |movie| %>
+    <div class="movie">
+      <% if movie.respond_to?(:posters) && movie.posters.respond_to?(:original) %>
+        <%= image_tag(movie.posters.original, height: "200") %>
+      <% end %>
+      <%= movie.title %>
+      <% if movie.respond_to?(:release_dates) && movie.release_dates.respond_to?(:theater) %>
+        <%= movie.release_dates.theater %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+
