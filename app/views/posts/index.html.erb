@@ -4,6 +4,7 @@
    <% @posts.each do |post|%>
    <div class='movie_post'>
      <%= link_to(post.title, post.trailer_url) %>
+     <br>
      <%= link_to(image_tag(post.image_url, height: '200'), post.trailer_url) %>
      <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count%>
      <%  if current_user %>
