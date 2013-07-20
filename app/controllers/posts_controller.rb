@@ -2,7 +2,17 @@ class PostsController < ApplicationController
   include RottenTomatoes
   RT_API_KEY = "q2zm55s22pkmfxehb4ae6sak"
 	def index
-		@posts = Post.all.reverse
+    @posts = []
+    Post.find_each do |post|
+      unless post.release_date.nil? ## this is just here because seeds don't have release_dates
+        if Date.today < (post.release_date + 21)
+          @posts << post
+        end
+      end
+    end
+    @posts.sort_by do |post|
+      post.votes.where(value: -1).count - post.votes.where(value: 1).count
+    end
 	end
 
 	def new #get
@@ -19,7 +29,7 @@ class PostsController < ApplicationController
     if post.save
       redirect_to root_path
     else
-      flash[:notice] = 'Error in post creation.'
+      flash[:notice] = post.errors.full_messages.join(', ')
       redirect_to new_post_path
     end
 
@@ -27,9 +37,8 @@ class PostsController < ApplicationController
 
 	def sort
     @posts = Post.all.sort_by do |post|
-      post.votes.where(value: 1).count - post.votes.where(value: -1).count
+      post.votes.where(value: -1).count - post.votes.where(value: 1).count
     end
-    @posts.reverse!
     render :index
 	end
 

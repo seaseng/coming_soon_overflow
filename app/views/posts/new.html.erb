@@ -3,7 +3,7 @@
 <%= form_tag(movie_search_path, method: "get", class: "pure-form pure-input-rounded") do %>
   <%= label_tag(:q, "Search for movie title:") %>
   <%= text_field_tag(:q) %>
-  <%= submit_tag "Search", class: "pure-button pure-button-primary" %>
+  <%= submit_tag "Search", class: "pure-button pure-button-success" %>
 <% end %>
 
 <%= form_tag posts_url, method: 'post' do %>
