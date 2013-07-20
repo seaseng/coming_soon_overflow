@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 	def create #post
     clips = HTTParty.get(params[:clips_url] + "?apikey=" + RT_API_KEY)
     trailer_url = clips['clips'].first['links']['alternate']
-
+    p params
     post = Post.new(title: params[:title], user_id: params[:user_id], image_url: params[:image_url],
      trailer_url: trailer_url, release_date: params[:release_date])
     if post.save

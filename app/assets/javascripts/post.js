@@ -7,7 +7,7 @@ $(document).ready(function() {
     $(document).find('.hidden').find('#release_date').val(movieData.releaseDate);
   }
 
-  $('#movie_list').on('click', '.movie', function(e){
+  $('#movie-list').on('click', '.movie', function(e){
     movieData = {
       title: $(this).find('.title').text().trim(),
       imageUrl: $(this).find('img').attr('src'),
