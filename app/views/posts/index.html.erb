@@ -6,6 +6,7 @@
      <%= link_to(post.title, post.trailer_url) %>
      <%= link_to(image_tag(post.image_url, height: '200'), post.trailer_url) %>
      <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count%>
+     <!-- REVIEW: indent please -->
      <%  if current_user %>
      <%= link_to "Up Vote", new_post_vote_path(post, :value => 1) %>
      <%= link_to "Down Vote", new_post_vote_path(post, :value => -1) %>

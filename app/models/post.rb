@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
-  include 
+  # REVIEW: emtpy include?
+  include
   attr_accessible :title, :trailer_url, :image_url, :user_id, :release_date
   belongs_to :user
   has_many :votes

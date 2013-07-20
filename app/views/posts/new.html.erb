@@ -1,3 +1,4 @@
+<!-- REVIEW: there is a lot going on here, move code to partials to organize -->
 <h2>Create New Trailer Post</h2>
 
 <%= form_tag(movie_search_path, method: "get", class: "pure-form pure-input-rounded") do %>
@@ -22,6 +23,7 @@
     <% @movies.each do |movie| %>
       <div class="movie">
         <div class="clips_url" style="display: none">
+        <!-- REVIEW: I would move these into helper methods -->
         <% if movie.respond_to?(:links) && movie.links.respond_to?(:clips) %>
           <%= movie.links.clips %>
         <% end %>
