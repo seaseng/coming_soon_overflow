@@ -27,3 +27,4 @@ They can also watch movie trailers right on the site.
 - Style for two-column layout.
 - Style search page for two-colum layoiut.
 - Create a stylish logo.
+- Add tomato rating + icon

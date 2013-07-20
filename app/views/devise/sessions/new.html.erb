@@ -3,17 +3,17 @@
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "pure-form pure-form-aligned"}) do |f| %>
 		<fieldset>
 			<div class="pure-control-group">
-				<div><%= f.label :email %>
+				<div><%= f.label :email %><span class="add-on"><i class="icon-envelope"></i></span>
 					<%= f.email_field :email, :autofocus => true %>
 				</div>
 
-				<div><%= f.label :password %>
+				<div><%= f.label :password %><span class="add-on"><i class="icon-key"></i>  </span>
 					<%= f.password_field :password %>
 				</div>
 				<div class="pure-controls">
 					<% if devise_mapping.rememberable? -%>
 					<div>
-						<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+						<%= f.check_box :remember_me %><%= f.label :remember_me %>
 					</div>
 					<% end -%>
 					<br>

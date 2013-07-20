@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   end
 
   def movie_search
-    @movies = Post.find_tomato params[:q]
+    @movies = Post.find_tomato params[:search]
     @post = Post.new
     render :new
   end

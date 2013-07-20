@@ -5,14 +5,15 @@
   <%= devise_error_messages! %>
   <fieldset>
     <div class="pure-control-group">
-      <div><%= f.label :email %>
+
+
+      <div><%= f.label :email %><span class="add-on"><i class="icon-envelope"></i></span>
         <%= f.email_field :email, :autofocus => true %></div>
 
-        <div><%= f.label :password %>
-          <%= f.password_field :password %></div>
 
-          <div><%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %></div>
+        <div><%= f.label :password %><span class="add-on"><i class="icon-key"></i>  </span><%= f.password_field :password %></div>
+
+          <div><%= f.label :password_confirmation %><span class="add-on"><i class="icon-key"></i>  </span><%= f.password_field :password_confirmation %></div>
             <div class="pure-controls">
               <%= f.submit "Sign up", class: "pure-button pure-button-primary" %>
               <%= render "devise/shared/links" %></div>
