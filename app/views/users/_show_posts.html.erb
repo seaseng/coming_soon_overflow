@@ -1,0 +1,24 @@
+<% current_user.posts.each do |post| %>
+<div class='movie_post'>
+ <%= link_to(post.title, post.trailer_url) %>
+ <br>
+ <%= link_to(image_tag(post.image_url, height: '200'), post.trailer_url) %>
+  
+  <% unless post.votes.empty? %>
+    <br>
+    <label>Vote Count:
+    <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count%>
+    </label>
+     <% if post.votes.first.value == 0 %>
+       <%= link_to "Up Vote", post_votes_path(post, :value => 1), :method => :post %>
+       <%= link_to "Down Vote", post_votes_path(post, :value => -1), :method => :post %>
+     <% elsif post.votes.first.value == 1 %>
+       <%= link_to "Remove Up Vote", post_votes_path(post, :value => 0), :method => :post %>
+       <%= link_to "Down Vote", post_votes_path(post, :value => -1), :method => :post %>
+     <% elsif post.votes.first.value == -1 %>
+       <%= link_to "Upvote", post_votes_path(post, :value => 1), :method => :post %>
+       <%= link_to "Remove Down Vote", post_votes_path(post, :value => 0), :method => :post %>
+     <%  end %>
+ <% end %>
+</div>
+<% end %>

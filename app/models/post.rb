@@ -8,8 +8,7 @@ class Post < ActiveRecord::Base
 
 
   def self.find_tomato name
-    rotten_resutls = RottenTomatoes::RottenMovie.find(:title => name, :limit => 5)
-    #self.new :title => rotten_resutls.title
+    rotten_results = RottenTomatoes::RottenMovie.find(:title => name, :limit => 5)
   end
 
 end

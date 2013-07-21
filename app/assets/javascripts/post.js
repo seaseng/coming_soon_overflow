@@ -1,14 +1,16 @@
 $(document).ready(function() {
 
   function fillFields(movieData) {
-    $(document).find('.hidden').find('#title').val(movieData.title);
-    $(document).find('.hidden').find('#image_url').val(movieData.imageUrl);
-    $(document).find('.hidden').find('#clips_url').val(movieData.clipsUrl);
-    $(document).find('.hidden').find('#release_date').val(movieData.releaseDate);
+    var hidden_fields = $(document).find('.hidden');
+    hidden_fields.find('#title').val(movieData.title);
+    hidden_fields.find('#image_url').val(movieData.imageUrl);
+    hidden_fields.find('#clips_url').val(movieData.clipsUrl);
+    hidden_fields.find('#release_date').val(movieData.releaseDate);
   }
   $('#movie-list').on('click', '.movie', function(e){
-    $('.movie').removeClass('clicked');
-    $(this).addClass('clicked');
+    // $('.movie').removeClass('clicked');
+    // $(this).addClass('clicked');
+    $(this).toggleClass('clicked');
     movieData = {
       title: $(this).find('.title').text().trim(),
       imageUrl: $(this).find('img').attr('src'),

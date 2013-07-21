@@ -6,6 +6,7 @@
   		<% end %>
   	</div>
 
+
   	<% if movie.respond_to?(:posters) && movie.posters.respond_to?(:original) %>
   	<%= image_tag(movie.posters.original, height: "400") %>
   	<% end %>
@@ -13,6 +14,7 @@
     <div class="title">
       <%= movie.title %>
     </div>
+
 
   	<div class="release_date">
   		<%= movie.year%>

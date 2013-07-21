@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-  include RottenTomatoes
-  RT_API_KEY = "q2zm55s22pkmfxehb4ae6sak"
+  
 	def index
     @posts = []
     Post.find_each do |post|
@@ -16,22 +15,12 @@ class PostsController < ApplicationController
 	end
 
 	def new #get
-    @movies = params[:movies]
-
-    upcoming_movies = HTTParty.get('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/upcoming.json?apikey='+ RT_API_KEY )
-    @prepopulated_upcoming_movies = upcoming_movies['movies']
-    @prepopulated_upcoming_movies.each do |attr|
-      bad_dates = attr['release_dates']['theater'].split('-').map{|d|d.to_i}
-      ok_dates = Date.new(bad_dates[0],bad_dates[1],bad_dates[2])
-      attr['release_dates']['theater'] = ok_dates.to_formatted_s(:long_ordinal)
-    end
-
+    get_upcoming_movies
 	end
 
 	def create #post
     clips = HTTParty.get(params[:clips_url] + "?apikey=" + RT_API_KEY)
     trailer_url = clips['clips'].first['links']['alternate']
-    p params
     post = Post.new(title: params[:title], user_id: params[:user_id], image_url: params[:image_url],
      trailer_url: trailer_url, release_date: params[:release_date])
     if post.save

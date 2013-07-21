@@ -1,0 +1,10 @@
+<div class='movie_post'>
+ <%= link_to(post.title, post.trailer_url) %>
+ <br>
+ <%= link_to(image_tag(post.image_url, height: '200'), post.trailer_url) %>
+ <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count%>
+ <%  if current_user %>
+   <%= link_to "Up Vote", post_votes_path(post, :value => 1), :method => :post %>
+   <%= link_to "Down Vote", post_votes_path(post, :value => -1), :method => :post %>
+ <%  end %>
+</div>

@@ -9,11 +9,12 @@
 # Post.create(title: "Enders game", url: "www.youtube.com", image_url: "poster.png")
 
 User.create(email: 'navidm@gmail.com', password: 'password', password_confirmation: 'password')
+User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password')
 
 
 10.times do 
   user = User.create(email: Faker::Internet.email, password: 'password', password_confirmation: 'password')
-  10.times do 
+  3.times do 
     user.posts.create(title: Faker::Company.catch_phrase)
   end
 end

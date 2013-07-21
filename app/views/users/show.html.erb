@@ -1,3 +1,5 @@
-<li><%= link_to 'Edit Profile', edit_user_registration_path  %></li>
+<p><%= link_to 'Edit Profile', edit_user_registration_path  %></p>
 <%= image_tag(current_user.avatar, alt: current_user.email ) %>
+
+<%= render 'show_posts' %>
 
