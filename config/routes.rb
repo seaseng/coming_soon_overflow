@@ -6,6 +6,8 @@ ComingSoonOverflow::Application.routes.draw do
   root to: "posts#index"
   get '/posts/popularity' => 'posts#sort', :as => 'posts_sort'
   resources :users, only: [:show]
+
+  post '/posts/:post_id/votes' => 'votes#create_profile_vote', :as => 'votes_profile'
   # resources :posts, only: [:neuw, :create, :show, :update, :index]
   # resources :votes, only: [:create,:show]
   resources :posts, shallow: true do 

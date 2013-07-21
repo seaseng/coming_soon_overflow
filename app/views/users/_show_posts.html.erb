@@ -19,6 +19,13 @@
        <%= link_to "Up Vote",           vote_path(post.votes.first, value: 1), :method => :put %>
        <%= link_to "Remove Down Vote",  vote_path(post.votes.first, value: 0), :method => :put %>
      <%  end %>
- <% end %>
+     <% else %>
+      <%= link_to votes_profile_path(post, value: 1), :method => :post do %>
+        <i class="icon-arrow-up icon-2x"></i>
+      <% end %>
+      <%= link_to votes_profile_path(post, value: -1), :method => :post do %>
+        <i class="icon-arrow-down icon-2x"></i>
+      <% end %>
+  <% end %>
 </div>
 <% end %>

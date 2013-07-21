@@ -20,7 +20,12 @@ class PostsController < ApplicationController
 
 	def create #post
     clips = HTTParty.get(params[:clips_url] + "?apikey=" + RT_API_KEY)
-    trailer_url = clips['clips'].first['links']['alternate']
+    trailer_url_temp = clips['clips'].first['links']['alternate']
+    if trailer_url_temp
+      trailer_url = trailer_url_temp
+    else
+      trailer_url = 'none'
+    end
     post = Post.new(title: params[:title], user_id: params[:user_id], image_url: params[:image_url],
      trailer_url: trailer_url, release_date: params[:release_date])
     if post.save
@@ -31,6 +36,7 @@ class PostsController < ApplicationController
     end
 
 	end
+
 
 	def sort
     @posts = Post.all.sort_by do |post|

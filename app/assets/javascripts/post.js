@@ -8,9 +8,9 @@ $(document).ready(function() {
     hidden_fields.find('#release_date').val(movieData.releaseDate);
   }
   $('#movie-list').on('click', '.movie', function(e){
-    // $('.movie').removeClass('clicked');
-    // $(this).addClass('clicked');
-    $(this).toggleClass('clicked');
+    $('.movie').removeClass('clicked');
+    $(this).addClass('clicked');
+    // $(this).toggleClass('clicked');
     movieData = {
       title: $(this).find('.title').text().trim(),
       imageUrl: $(this).find('img').attr('src'),
