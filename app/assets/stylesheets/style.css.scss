@@ -4,7 +4,6 @@
 	width:100%;
 	padding:0px;
 	margin: 0px;
-
 }
 
 .login_signin {
@@ -45,6 +44,8 @@
 	display:inline-block;
 	padding: 1em 1em 1em 1em;
 	position: relative;
+	margin: auto auto;
+	text-align: center;
 }
 
 .movie:hover{
@@ -64,11 +65,19 @@
 	background: -ms-linear-gradient(top,  rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 ); /* IE6-9 */
+}
 
+.title{
+	color:white;
+	border-radius:1em 1em 0 0;
+	background-color:black;
+}
+
+.poster{
 }
 
 #flash_notice{
 	position: fixed;
 	left: 50%;
-	height: 50%;
+	top: 50%;
 }
