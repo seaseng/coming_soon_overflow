@@ -6,27 +6,27 @@
 
     <div class='title'>
      <%= link_to(post.title, post.trailer_url) %>
-    </div>
-
-    <div class='poster'>
-     <%= link_to(image_tag(post.image_url, height: '400'), post.trailer_url) %>
-    </div>
-
-      <br>
-
-    <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count %>
-
-     <%  if current_user %>
-        <%= link_to(new_post_vote_path(post, :value => 1)) do %>
-        <i class="icon-arrow-up icon-2x"></i>
-        <% end %>
-        <%= link_to(new_post_vote_path(post, :value => -1)) do %>
-        <i class="icon-arrow-down icon-2x"></i>
-        <% end %>
-     <%  end %>
-
    </div>
-  <% end %>
+
+   <div class='poster'>
+     <%= link_to(image_tag(post.image_url, height: '400'), post.trailer_url) %>
+   </div>
+
+   <br>
+
+   <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count %>
+
+   <%  if current_user %>
+   <%= link_to(post_votes_path(post), :value => 1, :method => :post) do %>
+     <i class="icon-arrow-up icon-2x"></i>
+   <% end %>
+   <%= link_to(post_votes_path(post), :value => -1, :method => :post) do %>
+     <i class="icon-arrow-down icon-2x"></i>
+   <% end %>
+   <%  end %>
+
  </div>
+ <% end %>
+</div>
 
 </div>
