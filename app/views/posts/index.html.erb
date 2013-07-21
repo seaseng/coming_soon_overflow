@@ -17,12 +17,12 @@
    <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count %>
 
    <%  if current_user %>
-   <%= link_to(post_votes_path(post), :value => 1, :method => :post) do %>
-     <i class="icon-arrow-up icon-2x"></i>
-   <% end %>
-   <%= link_to(post_votes_path(post), :value => -1, :method => :post) do %>
-     <i class="icon-arrow-down icon-2x"></i>
-   <% end %>
+     <%= link_to(post_votes_path(post), :value => 1, :method => :post) do %>
+       <i class="icon-arrow-up icon-2x"></i>
+     <% end %>
+     <%= link_to(post_votes_path(post), :value => -1, :method => :post) do %>
+       <i class="icon-arrow-down icon-2x"></i>
+     <% end %>
    <%  end %>
 
  </div>
