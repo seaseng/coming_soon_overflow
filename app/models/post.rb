@@ -11,4 +11,5 @@ class Post < ActiveRecord::Base
     rotten_resutls = RottenTomatoes::RottenMovie.find(:title => name, :limit => 5)
     #self.new :title => rotten_resutls.title
   end
+
 end

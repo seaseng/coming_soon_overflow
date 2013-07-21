@@ -27,10 +27,10 @@
 	float:left;
 }
 .search_bar form {
- margin-left:1em;
+	margin-left:1em;
 }
 .search_bar form button {
- margin-left:1em;
+	margin-left:1em;
 }
 .submit-movie{
 	float:right;
@@ -41,6 +41,7 @@
 }
 
 .movie{
+	border-radius: 1em;
 	display:inline-block;
 	padding: 1em 1em 1em 1em;
 	position: relative;
@@ -48,10 +49,21 @@
 
 .movie:hover{
 	background-color: white;
+	-webkit-transition-duration: 1s;
+	-webkit-transform: translate(0px, -10px);
+	-moz-transition-duration: 1s;
+	-moz-transform: translate(0px, -10px);
 }
 
 .clicked {
-	border: 1px solid black ;
+	background: rgb(254,252,234); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(254,252,234,1) 0%, rgba(241,218,54,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,252,234,1)), color-stop(100%,rgba(241,218,54,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 ); /* IE6-9 */
 
 }
 

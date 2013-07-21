@@ -1,0 +1,18 @@
+  <% @movies.each do |movie| %>
+  <div class="movie">
+  	<div class="clips_url" style="display: none">
+  		<% if movie.respond_to?(:links) && movie.links.respond_to?(:clips) %>
+  		<%= movie.links.clips %>
+  		<% end %>
+  	</div>
+  	<% if movie.respond_to?(:posters) && movie.posters.respond_to?(:original) %>
+  	<%= image_tag(movie.posters.original, height: "200") %>
+  	<% end %>
+  	<div class="title">
+  		<%= movie.title %>
+  	</div>
+  	<div class="release_date">
+  		<%= movie.year%>
+  	</div>
+  </div>
+  <%end%>

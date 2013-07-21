@@ -1,0 +1,14 @@
+  <% @prepopulated_upcoming_movies.each do |upcoming| %>
+  <div class="movie">
+    <div class="clips_url" style="display: none">
+      <%= upcoming['links']['clips']%>
+    </div>
+    <%= image_tag(upcoming['posters']['original'], height: "200") %>
+    <div class="title">
+      <%= upcoming['title'] %>
+    </div>
+    <div class="release_date">
+      <%= upcoming['release_dates']['theater'] %>
+    </div>
+  </div>
+  <% end %>
