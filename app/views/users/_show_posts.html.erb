@@ -10,18 +10,14 @@
     <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count%>
     </label>
      <% if post.votes.first.value == 0 %>
-       <%= link_to(post_votes_path(post), :value => 1, :method => :post) do %>
-         <i class="icon-arrow-up icon-2x"></i>
-       <% end %>
-       <%= link_to(post_votes_path(post), :value => -1, :method => :post) do %>
-         <i class="icon-arrow-down icon-2x"></i>
-       <% end %>
+       <%= link_to "Up Vote",         vote_path(post.votes.first, value: 1), :method => :put %>
+       <%= link_to "Down Vote",       vote_path(post.votes.first, value: -1), :method => :put %>
      <% elsif post.votes.first.value == 1 %>
-       <%= link_to "Remove Up Vote",  vote_path(post.votes.first), :value => 0, :method => :put %>
-       <%= link_to "Down Vote",       vote_path(post.votes.first), :value => -1, :method => :put %>
+       <%= link_to "Remove Up Vote",  vote_path(post.votes.first, value: 0), :method => :put %>
+       <%= link_to "Down Vote",       vote_path(post.votes.first, value: -1), :method => :put %>
      <% elsif post.votes.first.value == -1 %>
-       <%= link_to "Up Vote",           vote_path(post.votes.first), :value => 1, :method => :put %>
-       <%= link_to "Remove Down Vote",  vote_path(post.votes.first), :value => 0, :method => :put %>
+       <%= link_to "Up Vote",           vote_path(post.votes.first, value: 1), :method => :put %>
+       <%= link_to "Remove Down Vote",  vote_path(post.votes.first, value: 0), :method => :put %>
      <%  end %>
  <% end %>
 </div>

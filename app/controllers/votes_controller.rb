@@ -25,11 +25,11 @@ class VotesController < ApplicationController
   def update
     vote = Vote.find params[:id]
     vote.value = params[:value]
-    if vote.save
+    if vote.save 
       redirect_to user_path
     else
       flash[:notice] = "Can't vote twice on the same post."
-      redirect_to users_show_path
+      redirect_to user_path
     end
     
   end
