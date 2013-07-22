@@ -1,7 +1,7 @@
   <nav>
     <div class="pure-menu pure-menu-open pure-menu-horizontal">
       <div>
-<%=link_to(image_tag('/assets/logo.png',height:50))%></div>
+<%=link_to(image_tag('/assets/logo.png',height:50), root_path)%></div>
       <ul>
         <% if user_signed_in? %>
         <li class="active"><a href="/posts/new"><i class="icon-fixed-width icon-film"></i>Add Movie</a></li>

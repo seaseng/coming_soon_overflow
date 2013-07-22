@@ -76,5 +76,9 @@ movie_titles = [ ['Pacific Rim', 'Monsters University', 'World War Z'],
 end
 
 
+Post.all.each do |post|
+  post.
+
+
 
 
