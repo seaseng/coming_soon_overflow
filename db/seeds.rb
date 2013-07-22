@@ -75,9 +75,13 @@ movie_titles = [ ['Pacific Rim', 'Monsters University', 'World War Z'],
   end
 end
 
-
+vote_choice = [1, -1]
 Post.all.each do |post|
-  post.
+  User.all.each do |user|
+    post.votes.create(value: vote_choice.sample, user_id: user.id)
+  end
+end
+
 
 
 

@@ -1,8 +1,8 @@
 <div class='profile'>
 	<div class='profile-left'>
-<p><%= link_to 'Edit Profile', edit_user_registration_path  %></p>
-<p>
-<%= image_tag(current_user.avatar, alt: current_user.email ) %></p>
+<p><%= button_to "Edit Profile", edit_user_registration_path, :method => "get", :class => 'pure-button pure-button-primary' %></p>
+
+<p><%= image_tag(current_user.avatar, alt: current_user.email ) %></p>
 </div>
 
 <div class='profile-right'>

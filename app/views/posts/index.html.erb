@@ -1,4 +1,11 @@
-<%= link_to "Sort By Popularity",  posts_sort_path %>
+
+<div class="sort">
+<%= button_to "Sort By Popularity", posts_sort_pop_path, :method => "get", :class => 'pure-button pure-button-primary' %>
+<br>
+<%= button_to "Sort By Release Date", posts_sort_date_path, :method => "get", :class => 'pure-button pure-button-primary' %>
+</div>
+
+
 <div class='container'>
   <div class='main'>
     <% @posts.each do |post|%>

@@ -41,12 +41,18 @@ class PostsController < ApplicationController
 	end
 
 
-	def sort
+	def sort_popularity
     @posts = Post.all.sort_by do |post|
       post.votes.where(value: -1).count - post.votes.where(value: 1).count
     end
     render :index
 	end
+
+  def sort_release_date
+
+    @posts = Post.order("release_date DESC")
+    render :index
+  end
 
   def show
   end
