@@ -100,7 +100,22 @@
 }
 
 #flash_notice{
-	position: absolute;
-	left: 50%;
-	top: 50%;
+	width:100%;
+	float:right;
+	text-align: right;
+	color:red;
 }
+.field_with_errors { 
+	display: inline;
+}
+
+#error_explanations{
+	float:left;
+	text-align: left;
+}
+
+// #center_login_errors{
+// 	float: left;
+// 	text-align: left;
+// 	margin: 0 auto;
+// }

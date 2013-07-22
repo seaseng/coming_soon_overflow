@@ -15,14 +15,17 @@ They can also watch movie trailers right on the site.
 - ~~Post will have an upvote or downvote~~
 - ~~Display gravatar on their profile page.~~
 - ~~User Profile Page!~~
-- User can edit/delete their post
+- User can delete their post
 - ~~User can change their vote~~
 - ~~Post will use title to search for trailer using YouTube or iTunes API~~
 - ~~RottenTomato API callback will provide an image_url for movie poster, synopsis, release date and link to trailer~~
-- Post can be displayed by popularity (upvotes + downvotes) or release date of film
+- Post can be displayed by popularity (upvotes + downvotes) 
+- Post can be displayed by release date of film
 - Users can sign in via Google
 - ~Add selector styling for search page.~
 - Style the home page vote buttons to use pure(or images).
 - Style the posts links to use pure.
 - Create a stylish logo.
 - Add tomato rating + icon
+- Error Messages! 
+- Hover over movies in search and show Synopsis and ratings and stuff 
