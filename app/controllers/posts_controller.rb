@@ -56,4 +56,11 @@ class PostsController < ApplicationController
     render :new
   end
 
+  def destroy 
+    post = Post.find params[:id]
+    post.destroy
+    redirect_to get_request_path
+  end
+
+
 end

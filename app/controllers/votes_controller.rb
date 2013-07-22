@@ -37,17 +37,17 @@ class VotesController < ApplicationController
   end
 
 
-  def create_profile_vote
-    post = Post.find params[:post_id]
-    vote = post.votes.build :value => params[:value]
-    vote.user = current_user
-    if vote.save
-      redirect_to user_path(current_user)
-    else
-      flash[:notice] = "something got fucked."
-      redirect_to user_path(current_user)
-    end
-  end
+  # def create_profile_vote
+  #   post = Post.find params[:post_id]
+  #   vote = post.votes.build :value => params[:value]
+  #   vote.user = current_user
+  #   if vote.save
+  #     redirect_to user_path(current_user)
+  #   else
+  #     flash[:notice] = "something got fucked."
+  #     redirect_to user_path(current_user)
+  #   end
+  # end
 
 
   def edit

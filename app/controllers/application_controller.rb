@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authenticate_user!, except: [:index, :new]
   # helper_method :my_helper_method # makes methods available to views
+  
   def get_upcoming_movies
     @movies = params[:movies]
 
@@ -16,5 +17,12 @@ class ApplicationController < ActionController::Base
       attr['release_dates']['theater'] = ok_dates.to_formatted_s(:long_ordinal)
     end
   end
+
+  def get_request_path
+    request_path = request.headers['HTTP_REFERER']
+    request_path.slice! (request.headers['HTTP_ORIGIN'])
+    request_path
+  end
+
 
 end

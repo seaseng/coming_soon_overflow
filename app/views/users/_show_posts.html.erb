@@ -3,6 +3,7 @@
  <%= link_to(post.title, post.trailer_url) %>
  <br>
  <%= link_to(image_tag(post.image_url, height: '200'), post.trailer_url) %>
+
   
   <% unless post.votes.empty? %>
     <br>
@@ -29,5 +30,7 @@
         <i class="icon-arrow-down icon-2x"></i>
       <% end %>
   <% end %>
+
+<%= link_to "Delete Post",  post_path(post), :method => :delete %>
 </div>
 <% end %>
