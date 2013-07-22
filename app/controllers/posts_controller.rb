@@ -20,13 +20,14 @@ class PostsController < ApplicationController
 	end
 
 	def create #post
+
     clips = HTTParty.get(params[:clips_url] + "?apikey=" + RT_API_KEY)
-    trailer_url_temp = clips['clips'].first['links']['alternate']
-    if trailer_url_temp
-      trailer_url = trailer_url_temp
+    unless clips['clips'].empty?
+      trailer_url = clips['clips'].first['links']['alternate']
     else
-      trailer_url = 'none'
+      trailer_url = 'http://www.apple.com/trailers'
     end
+
     post = Post.new(title: params[:title], user_id: params[:user_id], image_url: params[:image_url],
      trailer_url: trailer_url, release_date: params[:release_date], critics_score: params[:critics_score], 
      critics_rating: params[:critics_rating], audience_score: params[:audience_score])
