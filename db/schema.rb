@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(:version => 20130719020925) do
     t.string  "trailer_url"
     t.string  "image_url"
     t.date    "release_date"
+    t.string  "critics_rating"
+    t.integer "critics_score"
+    t.integer "audience_score"
     t.integer "user_id"
   end
 

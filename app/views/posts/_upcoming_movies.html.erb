@@ -23,8 +23,10 @@
         <% elsif upcoming['ratings']['critics_rating'] == 'Rotten'%>
           <%= image_tag '/assets/rotten.gif',{height:15}%>
         <% else %>
-        <% end %> 
+        <% end %>
+        <span class="critics_rating"> 
           <%= upcoming['ratings']['critics_rating'] %>
+        </span>
 
         <% if upcoming['ratings']['critics_score'] < 65 %>
           <i class="icon-thumbs-down-alt"></i>
@@ -33,9 +35,13 @@
         <% else %>
           <i class="icon-thumbs-up-alt"></i>
         <% end %>
-          <%= upcoming['ratings']['critics_score'] %>%
+        <span class="critics_score">
+          <%= upcoming['ratings']['critics_score'] %>
+        </span>%
+        <span class="audience_score"
           <i class="icon-male"></i>
-        <%= upcoming['ratings']['audience_score'] %>%
+        <%= upcoming['ratings']['audience_score'] %>
+          </span>%
       </div>
 
     </div>

@@ -27,7 +27,8 @@ class PostsController < ApplicationController
       trailer_url = 'none'
     end
     post = Post.new(title: params[:title], user_id: params[:user_id], image_url: params[:image_url],
-     trailer_url: trailer_url, release_date: params[:release_date])
+     trailer_url: trailer_url, release_date: params[:release_date], critics_score: params[:critics_score], 
+     critics_rating: params[:critics_rating], audience_score: params[:audience_score])
     if post.save
       redirect_to root_path
     else
@@ -46,7 +47,6 @@ class PostsController < ApplicationController
 	end
 
   def show
-
   end
 
   def movie_search
