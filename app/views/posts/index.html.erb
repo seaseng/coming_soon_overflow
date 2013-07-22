@@ -3,46 +3,87 @@
   <div class='main'>
     <% @posts.each do |post|%>
       <div class='movie'>
+
+      <div class='poster'>
+        <%= link_to(image_tag(post.image_url, height: '300'), post.trailer_url) %>
+      </div>
+
         <div class='title'>
           <%= link_to(post.title, post.trailer_url) %>
         </div>
 
-      <div class='poster'>
-        <%= link_to(image_tag(post.image_url, height: '200'), post.trailer_url) %>
-      </div>
+
+        <div class="tomatoes">
+          <% if post.critics_rating == 'Fresh' %>
+            <%= image_tag '/assets/tomatoe-icons.png',{height:15}%>
+            <% elsif post.critics_rating == 'Rotten'%>
+              <%= image_tag '/assets/rotten.gif',{height:15}%>
+              <% else %>
+              <% end %>
+              <%= post.critics_rating %>
+              <%if post.critics_score < 65 %><i class="icon-thumbs-down-alt"></i><% elsif post.critics_score >= 65 && post.critics_score <= 75 %>
+          <i class="icon-meh"></i>
+        <% else %>
+          <i class="icon-thumbs-up-alt"></i>
+        <% end %>
+        <%= post.critics_score %>%
+
+        <i class="icon-male"></i>
+
+        <%= post.audience_score %>%
+          </div>
+
+
+
+
+
       <br>
+
+
       <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count %>
 
 
       <%  if current_user && (current_user.id == post.user_id) %>
         <% unless post.votes.empty? %>
           <% vote = Vote.where(post_id: post.id, user_id: current_user.id).first %>
-          <% if vote.value == 0 %>
-            <%= link_to "Up Vote",         vote_path(vote, value: 1), :method => :put %>
-            <%= link_to "Down Vote",       vote_path(vote, value: -1), :method => :put %>
+            <% if vote.value == 0 %>
+              <%= link_to vote_path(vote, value: 1), :method => :put do %>
+                  <i class="icon-arrow-up"></i>
+              <% end %>
+            <%= link_to vote_path(vote, value: -1), :method => :put do %>
+              <i class="icon-arrow-down"></i>
+              <% end %>
           <% elsif vote.value == 1 %>
-            <%= link_to "Remove Up Vote",  vote_path(vote, value: 0), :method => :put %>
-            <%= link_to "Down Vote",       vote_path(vote, value: -1), :method => :put %>
+            <%= link_to vote_path(vote, value: 0), :method => :put do %>
+              <i class="icon-undo"></i>
+            <% end %>
+             <%= link_to vote_path(vote, value: -1), :method => :put do %>
+                <i class="icon-arrow-down"></i>
+              <% end %>
           <% elsif vote.value == -1 %>
-            <%= link_to "Up Vote",           vote_path(vote, value: 1), :method => :put %>
-            <%= link_to "Remove Down Vote",  vote_path(vote, value: 0), :method => :put %>
+            <%= link_to vote_path(vote, value: 0), :method => :put do %>
+              <i class="icon-undo"></i>
+            <% end %>
+            <%= link_to vote_path(vote, value: -1), :method => :put do %>
+                <i class="icon-arrow-down"></i>
+              <% end %>
           <%  end %>
         <% else %>
           <%= link_to post_votes_path(post, value: 1), :method => :post do %>
-            <i class="icon-arrow-up icon-2x"></i>
+            <i class="icon-arrow-up"></i>
           <% end %>
           <%= link_to post_votes_path(post, value: -1), :method => :post do %>
-            <i class="icon-arrow-down icon-2x"></i>
+            <i class="icon-arrow-down"></i>
           <% end %>
         <% end %>
 
       <%  elsif current_user %>
 
         <%= link_to post_votes_path(post, value: 1), :method => :post do %>
-          <i class="icon-arrow-up icon-2x"></i>
+          <i class="icon-arrow-up"></i>
         <% end %>
         <%= link_to post_votes_path(post, value: -1), :method => :post do %>
-          <i class="icon-arrow-down icon-2x"></i>
+          <i class="icon-arrow-down"></i>
         <% end %>
 
       <%  end %>

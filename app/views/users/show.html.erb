@@ -1,5 +1,15 @@
+<div class='profile'>
+	<div class='profile-left'>
 <p><%= link_to 'Edit Profile', edit_user_registration_path  %></p>
-<%= image_tag(current_user.avatar, alt: current_user.email ) %>
+<p>
+<%= image_tag(current_user.avatar, alt: current_user.email ) %></p>
+</div>
+
+<div class='profile-right'>
+	Email: <%= current_user.email %>
+	<br>
+	Last signed in at: <%= current_user.last_sign_in_at.strftime('%D') %>
+</div>
+</div>
 
 <%= render 'show_posts' %>
-
