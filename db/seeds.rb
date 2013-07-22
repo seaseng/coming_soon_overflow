@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Post.create(title: "Enders game", url: "www.youtube.com", image_url: "poster.png")
 
 # user = User.create(email: 'navidm@gmail.com', password: 'password', password_confirmation: 'password')
 # user.posts << create_movie_post('Only god Forgives')
@@ -46,6 +45,10 @@
 #     image_url = movie.posters.detailed
 #   end
 #   release_date = movie.release_dates.theater
+#   critics_rating = movie.ratings.critics_rating
+#   critics_score = movie.ratings.critics_score
+#   audience_score = movie.ratings.audience_score
+  
 
 #   movie_post = Post.new(title: movie.title, image_url: movie.posters.detailed,
 #      trailer_url: trailer_url, release_date: movie.release_dates.theater) 
