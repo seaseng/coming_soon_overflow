@@ -1,9 +1,7 @@
-
-
-body {
+body{
   background-color: #F7F7F7;
   width: 960px;
-  margin: 0, auto;
+  margin: 0 auto !important;
   padding: 0px;
 }
 

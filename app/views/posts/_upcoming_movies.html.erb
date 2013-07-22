@@ -5,12 +5,12 @@
         <%= upcoming['links']['clips']%>
       </div>
 
-      <div class="title">
-        <%= upcoming['title']%>
+      <div class='poster'>
+      <%= image_tag(upcoming['posters']['detailed'], height: "250") %>
       </div>
 
-      <div class='poster'>
-      <%= image_tag(upcoming['posters']['detailed'], height: "200") %>
+      <div class="title">
+        <%= upcoming['title']%>
       </div>
 
       <div class="release_date">
@@ -19,9 +19,9 @@
 
       <div class="tomatoes">
         <% if upcoming['ratings']['critics_rating'] == 'Fresh' %>
-          <%= image_tag 'tomatoe-icons.png',{height:15}%>
+          <%= image_tag '/assets/tomatoe-icons.png',{height:15}%>
         <% elsif upcoming['ratings']['critics_rating'] == 'Rotten'%>
-          <%= image_tag 'rotten.png',{height:15}%>
+          <%= image_tag '/assets/rotten.gif',{height:15}%>
         <% else %>
         <% end %> 
           <%= upcoming['ratings']['critics_rating'] %>

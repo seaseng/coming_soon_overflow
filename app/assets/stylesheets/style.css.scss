@@ -38,6 +38,9 @@
 }
 #movie-list{
 	clear:both;
+	display:inline-block;
+	text-align: center;
+	margin-top: 1em;
 }
 
 .movie{
@@ -48,19 +51,17 @@
 	position: relative;
 	margin: auto auto;
 	text-align: center;
+	width: 25%;
 }
 
 .movie a{
 	text-decoration: none;		
 }
 
-/*.movie:hover{
+.movie:hover{
 	background-color: white;
-	-webkit-transition-duration: 1s;
-	-webkit-transform: translate(0px, -10px);
-	-moz-transition-duration: 1s;
-	-moz-transform: translate(0px, -10px);
-}*/
+	-webkit-transition-duration: .3s;
+}
 
 .clicked {
 	background: rgb(254,252,234); /* Old browsers */
@@ -73,13 +74,25 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 ); /* IE6-9 */
 }
 
-.title{
-	color:white;
-	border-radius:1em 1em 0 0;
-	background-color:black;
+.title {
+	color: #242E8F;
+	width:100%;
+	font-size: .7em;
+	font-weight: bold;
+}
+.title:first-letter {
+	font-size: 1.2em;
 }
 
 .poster{
+}
+
+.release_date{
+	font-size: .7em;	
+}
+
+.tomatoes{
+	font-size: .7em;
 }
 
 #flash_notice{
