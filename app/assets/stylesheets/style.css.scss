@@ -22,7 +22,6 @@
 }
 
 
-
 .login_signin {
 	margin-left: 14em;
 }
@@ -34,8 +33,10 @@
 .pure-menu.pure-menu-horizontal>ul{
 	float: right;
 }
+
 .pure-menu li a {
 	padding: 3px 20px;
+	margin-top: -3.5em;
 }
 
 .search_bar {
@@ -80,7 +81,12 @@
 	width: 15%;
 }
 .movie a{
-	text-decoration: none;		
+	text-decoration: none;
+	color: black;		
+}
+.movie a:visited{
+	text-decoration: none;
+	color: black;		
 }
 
 .movie:hover{
