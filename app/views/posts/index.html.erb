@@ -21,29 +21,31 @@
 
 
         <div class="tomatoes">
+          <% unless post.critics_rating.nil? %>
           <% if post.critics_rating == 'Fresh' %>
             <%= image_tag '/assets/tomatoe-icons.png',{height:15}%>
-            <% elsif post.critics_rating == 'Rotten'%>
-              <%= image_tag '/assets/rotten.gif',{height:15}%>
-              <% else %>
-              <% end %>
-              <%= post.critics_rating %>
-              
-              <% if post.respond_to?(:critics_score) %>
-                <% if post.critics_score < 65 %><i class="icon-thumbs-down-alt"></i>
-                <% elsif post.critics_score >= 65 && post.critics_score <= 75 %>
-                  <i class="icon-meh"></i>
-                <% else %>
-                  <i class="icon-thumbs-up-alt"></i>
-                <% end %>
-                <%= post.critics_score %>%
+          <% elsif post.critics_rating == 'Rotten'%>
+            <%= image_tag '/assets/rotten.gif',{height:15}%>
+          <% else %>
+          <% end %>
+          <%= post.critics_rating %>
+          <% end %>
+          
+          <% unless post.critics_score.nil? %>
+            <% if post.critics_score < 65 %><i class="icon-thumbs-down-alt"></i>
+            <% elsif post.critics_score >= 65 && post.critics_score <= 75 %>
+              <i class="icon-meh"></i>
+            <% else %>
+              <i class="icon-thumbs-up-alt"></i>
+            <% end %>
+            <%= post.critics_score %>%
 
-              <% end %>
+          <% end %>
 
-              <% if post.respond_to?(:audience_score)%>
-                <i class="icon-male"></i>
-                <%= post.audience_score %>%
-              <% end %>
+          <% unless post.audience_score.nil?%>
+            <i class="icon-male"></i>
+            <%= post.audience_score %>%
+          <% end %>
 
         </div>
 
