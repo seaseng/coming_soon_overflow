@@ -1,14 +1,15 @@
 class PostsController < ApplicationController
   
 	def index
-    @posts = []
-    Post.find_each do |post|
-      unless post.release_date.nil? ## this is just here because seeds don't have release_dates
-        if Date.today < (post.release_date + 21)
-          @posts << post
-        end
-      end
-    end
+    # @posts = []
+    # Post.find_each do |post|
+    #   unless post.release_date.nil? ## this is just here because seeds don't have release_dates
+    #     if Date.today < (post.release_date + 21)
+    #       @posts << post
+    #     end
+    #   end
+    # end
+    @posts = Post.all
     @posts.sort_by do |post|
       post.votes.where(value: -1).count - post.votes.where(value: 1).count
     end
@@ -51,7 +52,7 @@ class PostsController < ApplicationController
 
   def movie_search
     @movies = Post.find_tomato params[:search]
-    @post = Post.new
+    # @post = Post.new
     render :new
   end
 
