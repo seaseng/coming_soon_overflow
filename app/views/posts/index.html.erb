@@ -1,32 +1,45 @@
 <%= link_to "Sort By Popularity",  posts_sort_path %>
 <div class='container'>
   <div class='main'>
-   <% @posts.each do |post|%>
-   <div class='movie'>
+    <% @posts.each do |post|%>
+      <div class='movie'>
+        <div class='title'>
+          <%= link_to(post.title, post.trailer_url) %>
+        </div>
 
-    <div class='title'>
-     <%= link_to(post.title, post.trailer_url) %>
-   </div>
+      <div class='poster'>
+        <%= link_to(image_tag(post.image_url, height: '200'), post.trailer_url) %>
+      </div>
+      <br>
+      <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count %>
 
-   <div class='poster'>
-     <%= link_to(image_tag(post.image_url, height: '200'), post.trailer_url) %>
-   </div>
 
-   <br>
+      <%  if current_user && (current_user.id == post.user_id) %>
+        <% unless post.votes.empty? %>
+          <% vote = Vote.where(post_id: post.id, user_id: current_user.id).first %>
+          <% if vote.value == 0 %>
+            <%= link_to "Up Vote",         vote_path(vote, value: 1), :method => :put %>
+            <%= link_to "Down Vote",       vote_path(vote, value: -1), :method => :put %>
+          <% elsif vote.value == 1 %>
+            <%= link_to "Remove Up Vote",  vote_path(vote, value: 0), :method => :put %>
+            <%= link_to "Down Vote",       vote_path(vote, value: -1), :method => :put %>
+          <% elsif vote.value == -1 %>
+            <%= link_to "Up Vote",           vote_path(vote, value: 1), :method => :put %>
+            <%= link_to "Remove Down Vote",  vote_path(vote, value: 0), :method => :put %>
+          <%  end %>
+        <% end %>
 
-   <%= post.votes.where(value: 1).count - post.votes.where(value: -1).count %>
+      <%  elsif current_user %>
 
-   <%  if current_user %>
-     <%= link_to post_votes_path(post, value: 1), :method => :post do %>
-       <i class="icon-arrow-up icon-2x"></i>
-     <% end %>
-     <%= link_to post_votes_path(post, value: -1), :method => :post do %>
-       <i class="icon-arrow-down icon-2x"></i>
-     <% end %>
-   <%  end %>
+        <%= link_to post_votes_path(post, value: 1), :method => :post do %>
+          <i class="icon-arrow-up icon-2x"></i>
+        <% end %>
+        <%= link_to post_votes_path(post, value: -1), :method => :post do %>
+          <i class="icon-arrow-down icon-2x"></i>
+        <% end %>
 
- </div>
- <% end %>
-</div>
-
+      <%  end %>
+      </div>
+    <% end %>
+  </div>
 </div>

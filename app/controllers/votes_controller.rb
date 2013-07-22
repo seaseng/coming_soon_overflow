@@ -7,11 +7,31 @@ class VotesController < ApplicationController
     post = Post.find params[:post_id]
     vote = post.votes.build :value => params[:value]
     vote.user = current_user
+
+    request_path = request.headers['HTTP_REFERER']
+    request_path.slice! (request.headers['HTTP_ORIGIN'])
+    
     if vote.save
-      redirect_to root_path
+      redirect_to request_path
     else
       flash[:notice] = "Can't vote twice on the same post."
-      redirect_to root_path
+      redirect_to request_path
+    end
+    
+  end
+
+  def update
+    
+    vote = Vote.find params[:id]
+    vote.value = params[:value]
+    request_path = request.headers['HTTP_REFERER']
+    request_path.slice! (request.headers['HTTP_ORIGIN'])
+
+    if vote.save 
+      redirect_to request_path
+    else
+      flash[:notice] = "Can't vote twice on the same post."
+      redirect_to request_path
     end
     
   end
@@ -36,16 +56,6 @@ class VotesController < ApplicationController
 
   end
 
-  def update
-    vote = Vote.find params[:id]
-    vote.value = params[:value]
-    if vote.save 
-      redirect_to user_path
-    else
-      flash[:notice] = "Can't vote twice on the same post."
-      redirect_to user_path
-    end
-    
-  end
+  
 
 end
