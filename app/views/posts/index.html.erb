@@ -27,6 +27,13 @@
             <%= link_to "Up Vote",           vote_path(vote, value: 1), :method => :put %>
             <%= link_to "Remove Down Vote",  vote_path(vote, value: 0), :method => :put %>
           <%  end %>
+        <% else %>
+          <%= link_to post_votes_path(post, value: 1), :method => :post do %>
+            <i class="icon-arrow-up icon-2x"></i>
+          <% end %>
+          <%= link_to post_votes_path(post, value: -1), :method => :post do %>
+            <i class="icon-arrow-down icon-2x"></i>
+          <% end %>
         <% end %>
 
       <%  elsif current_user %>
