@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  include 
   attr_accessible :title, :trailer_url, :image_url, :user_id, :release_date, :critics_score, :critics_rating, :audience_score
   belongs_to :user
   has_many :votes
